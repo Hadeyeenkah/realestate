@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Navigation Bar -->
+        <header>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/templates/dashboard.html" aria-label="Go to Dashboard">Dashboard</a></li>
+                    <li><a href="/templates/search.html" aria-label="Search Properties">Search Properties</a></li>
+                    <li><a href="/templates/profile_settings.html" aria-label="Placeholder Link">Profile Settings</a></li>
+                    <li><a href="/templates/search.html" aria-label="Search Properties">Saved Properties</a></li>
+                    <li><a href="/templates/property_details.html" aria-label="Manage Payments and Subscriptions">Payment & Subscriptions</a></li>
+                    <li><a href="{{ url_for('logout') }}" aria-label="Logout">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!-- Welcome Section -->
+        <main>
+            <section class="welcome-section">
+                <h1>Welcome, {{ user['name'] or 'User' }}!</h1>
+                <p><strong>Email:</strong> {{ user['email'] or 'user@example.com' }}</p>
+            </section>
+            
+            <!-- Recent Activity Section -->
+            <section class="recent-activity">
+                <h2>Recent Activity</h2>
+                {% if user['recent_activity'] %}
+                    <ul>
+                        {% for activity in user['recent_activity'] %}
+                            <li>{{ activity }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No recent activities to display.</p>
+                {% endif %}
+            </section>
+        </main>
+    </div>
+</body>
+</html>

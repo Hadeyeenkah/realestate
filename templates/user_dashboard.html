@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to Your Dashboard, {{ current_user['username'] }}</h1>
+
+    <div>
+        <h2>Navigate to:</h2>
+        <ul>
+            <li><a href="{{ url_for('profile_settings') }}">Profile Settings</a></li>
+            <li><a href="{{ url_for('saved_properties') }}">Saved Properties</a></li>
+            <li><a href="{{ url_for('payment_subscriptions') }}">Payment & Subscriptions</a></li>
+        </ul>
+    </div>
+</body>
+</html>

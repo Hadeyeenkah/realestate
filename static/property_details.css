@@ -1,0 +1,84 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Property details container */
+.property-details {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+}
+
+/* Heading style */
+h1 {
+    font-size: 2rem;
+    color: #4caf50; /* Green color */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Paragraph styling for property info */
+p {
+    font-size: 1rem;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+/* Label for strong emphasis text */
+strong {
+    font-weight: bold;
+}
+
+/* Link styling (for Contact Agent and Request Viewing) */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #4caf50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for links */
+a:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 600px) {
+    .property-details {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    a {
+        width: 100%;
+        padding: 12px;
+    }
+}

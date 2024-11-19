@@ -1,0 +1,21 @@
+<!-- templates/request_viewing.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Viewing</title>
+    <link rel="stylesheet" href="/static/request_viewing.css">
+</head>
+<body>
+    <h1>Request a Viewing for {{ property.title }}</h1>
+
+    <form method="POST">
+        <label for="date">Preferred Date:</label>
+        <input type="date" name="date" id="date" required>
+        <button type="submit">Request Viewing</button>
+    </form>
+
+    <a href="{{ url_for('property_details', property_id=property.id) }}">Back to Property Details</a>
+</body>
+</html>

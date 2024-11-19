@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Listings</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- Background Video -->
+    <video autoplay muted loop class="background-video">
+        <source src="/static/Discover Dream Homes_ Realtor Client Tour!-VEED.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>Discover Your Dream Home</h1>
+                <p>Explore our curated listings of premium real estate.</p>
+                <a href="/templates/listings.html" class="hero-button">Browse Listings</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Properties Section -->
+    <section id="properties" class="properties-section">
+        <h2>Featured Properties</h2>
+        <div class="property-types">
+            <!-- Property Type Column: For Rent -->
+            <a href="/properties/rent" class="property-type-column">
+                <h3>For Rent</h3>
+                <div class="property-cards">
+                    {% for property in properties %}
+                        {% if property.type == 'rent' %}
+                            <div class="property-card">
+                                <img src="{{ property.image_url }}" alt="Property Image">
+                                <div class="property-gradient"></div>
+                                <div class="property-details">
+                                    <h3>{{ property.title }}</h3>
+                                    <p class="property-location">{{ property.location }}</p>
+                                    <p class="property-price">${{ property.price }} / month</p>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </a>
+
+            <!-- Property Type Column: For Sale -->
+            <a href="/properties/sale" class="property-type-column">
+                <h3>For Sale</h3>
+                <div class="property-cards">
+                    {% for property in properties %}
+                        {% if property.type == 'sale' %}
+                            <div class="property-card">
+                                <img src="{{ property.image_url }}" alt="Property Image">
+                                <div class="property-gradient"></div>
+                                <div class="property-details">
+                                    <h3>{{ property.title }}</h3>
+                                    <p class="property-location">{{ property.location }}</p>
+                                    <p class="property-price">${{ property.price }}</p>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </a>
+
+            <!-- Property Type Column: Shortlet -->
+            <a href="/properties/shortlet" class="property-type-column">
+                <h3>Shortlet</h3>
+                <div class="property-cards">
+                    {% for property in properties %}
+                        {% if property.type == 'shortlet' %}
+                            <div class="property-card">
+                                <img src="{{ property.image_url }}" alt="Property Image">
+                                <div class="property-gradient"></div>
+                                <div class="property-details">
+                                    <h3>{{ property.title }}</h3>
+                                    <p class="property-location">{{ property.location }}</p>
+                                    <p class="property-price">${{ property.price }} / night</p>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Real Estate Listings. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

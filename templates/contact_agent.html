@@ -1,0 +1,21 @@
+<!-- templates/contact_agent.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Agent</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Contact Agent for {{ property.title }}</h1>
+
+    <form method="POST">
+        <label for="message">Your Message:</label>
+        <textarea name="message" id="message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <a href="{{ url_for('property_details', property_id=property.id) }}">Back to Property Details</a>
+</body>
+</html>
