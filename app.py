@@ -62,7 +62,7 @@ def dashboard():
             'name': session.get('username'),
             'email': session.get('email')
         }
-        return render_template('dashboard.html', user=user)
+        return render_template('dashboard.html,')
     else:
         flash("Please log in to access the dashboard.", "danger")
         return redirect(url_for('profile_settings'))

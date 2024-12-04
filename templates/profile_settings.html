@@ -4,28 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Settings</title>
+    <link rel="stylesheet" href="/static/profile_settings.css">
 </head>
 <body>
-    <h1>Profile Settings</h1>
+    <div class="container">
+        <h1>Profile Settings</h1>
 
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <div class="flash {{ category }}">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-container">
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
 
-    <form method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" value="{{ user['username'] }}" required><br>
+        <!-- Profile Settings Form -->
+        <form method="POST" class="profile-form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" value="{{ user['username'] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="{{ user['email'] }}" required>
+            </div>
+            <button type="submit" class="btn-primary">Update Profile</button>
+        </form>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="{{ user['email'] }}" required><br>
-
-        <button type="submit">Update Profile</button>
-    </form>
-
-    <a href="/templates/dashboard.html">Back to Dashboard</a>
+        <!-- Back to Dashboard Link -->
+        <a href="/templates/dashboard.html" class="btn-secondary">Back to Dashboard</a>
+    </div>
 </body>
 </html>
