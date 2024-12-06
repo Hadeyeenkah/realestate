@@ -7,19 +7,46 @@
     <link rel="stylesheet" href="/static/listings.css">
 </head>
 <body>
-
     <!-- Header -->
     <header class="header">
-        <h1>Available Properties</h1>
-        <p>Find the property that suits your needs.</p>
+        <h1>Explore Our Listings</h1>
+        <p>Your dream home is just a click away!</p>
     </header>
+
+    <!-- Background Video -->
+    <video autoplay muted loop class="background-video">
+        <source src="/static/Discover Dream Homes_ Realtor Client Tour!-VEED.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Search/Filter Section -->
+    <section class="filter-section">
+        <form class="filter-form">
+            <input type="text" placeholder="Search by location or keyword" name="search" class="search-input">
+            <select name="price-range" class="filter-dropdown">
+                <option value="">Price Range</option>
+                <option value="0-1000">$0 - $1,000</option>
+                <option value="1000-2000">$1,000 - $2,000</option>
+                <option value="2000-5000">$2,000 - $5,000</option>
+                <option value="5000+">$5,000+</option>
+            </select>
+            <select name="property-type" class="filter-dropdown">
+                <option value="">Property Type</option>
+                <option value="apartment">Apartment</option>
+                <option value="house">House</option>
+                <option value="condo">Condo</option>
+                <option value="studio">Studio</option>
+            </select>
+            <button type="submit" class="filter-button">Apply Filters</button>
+        </form>
+    </section>
 
     <!-- Listings Section -->
     <section class="listings-section">
         <div class="listings-grid">
-            <!-- Example Property Card -->
+            <!-- Property Card 1 -->
             <div class="property-card">
-                <img src="/images/pic-person-02.jpg" alt="Property Image">
+                <img src="/static/images/property1.jpg" alt="Modern Apartment">
                 <div class="property-info">
                     <h2>Modern Apartment</h2>
                     <p>Location: Downtown</p>
@@ -28,9 +55,9 @@
                 </div>
             </div>
 
-            <!-- Add more property cards here -->
+            <!-- Property Card 2 -->
             <div class="property-card">
-                <img src="/images/pic-person-02.jpg" alt="Property Image">
+                <img src="/static/images/property2.jpg" alt="Spacious House">
                 <div class="property-info">
                     <h2>Spacious House</h2>
                     <p>Location: Suburbs</p>
@@ -38,29 +65,23 @@
                     <a href="/property-details" class="details-button">View Details</a>
                 </div>
             </div>
-            <!-- Additional cards for more properties --><div class="property-card">
-                <img src="/images/pic-person-02.jpg" alt="Property Image">
+
+            <!-- Add more property cards -->
+            <div class="property-card">
+                <img src="/static/images/property3.jpg" alt="Luxury Condo">
                 <div class="property-info">
-                    <h2>Spacious House</h2>
-                    <p>Location: Suburbs</p>
-                    <p>Price: $350,000</p>
-                    <a href="/pages/register.html" class="details-button">View Details</a>
+                    <h2>Luxury Condo</h2>
+                    <p>Location: Uptown</p>
+                    <p>Price: $2,500 / month</p>
+                    <a href="/property-details" class="details-button">View Details</a>
                 </div>
-        </div>
-        <div class="property-card">
-            <img src="/images/pic-person-02.jpg" alt="Property Image">
-            <div class="property-info">
-                <h2>House For Rent </h2>
-                <p>Location: Suburbs</p>
-                <p>Price: $350,000</p>
-                <a href="/pages/login.html" class="details-button">View Details</a>
             </div>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 Real Estate Listings. All rights reserved.</p>
     </footer>
-
 </body>
 </html>

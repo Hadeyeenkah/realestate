@@ -1,9 +1,13 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, session
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_sqlalchemy import SQLAlchemy
 import os
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'your_default_secret_key')  # Use an environment-specific key.
+app.config.from_pyfile('config.py')
+db = SQLAlchemy(app)
+
 
 # Dummy user data with hashed password
 dummy_user = {
@@ -31,7 +35,19 @@ properties = [
 # Default route
 @app.route('/')
 def home():
-    return redirect(url_for('login'))  # Redirect to login by default
+    return redirect(url_for('index'))  # Redirect to login by default
+
+@app.route('/listings')
+def listings():
+    # Return the listings page
+    return render_template('listings.html')
+
+@app.route('/index')
+def index():
+    # Render the index page
+    return render_template('index.html')
+
+
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -48,11 +64,27 @@ def login():
                 "email": dummy_user["profile"]["email"]
             }
             flash('Login successful!', 'success')
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('listings'))
         else:
             flash('Invalid username or password. Please try again.', 'danger')
 
     return render_template('login.html', title="Login")
+
+@app.route('/register')
+def register():
+    if request.method == 'POST':
+        # Process registration logic
+        username = request.form['username']
+        password = request.form['password']
+        # Save the user to the database (this is a placeholder example)
+        # db.add_user(username, password)
+
+        # Redirect to the listings page after registration
+        return redirect(url_for('listings'))
+
+    # Render the register page for GET requests
+    return render_template('register.html')
+
 
 @app.route('/dashboard')
 def dashboard():
@@ -66,6 +98,8 @@ def dashboard():
     else:
         flash("Please log in to access the dashboard.", "danger")
         return redirect(url_for('profile_settings'))
+    
+    
 
 #@app.route('/dashboard')
 #def dashboard():
@@ -181,5 +215,11 @@ def profile_settings():
     return render_template('profile_settings.html', user=dummy_user["profile"], title="Profile Settings")
 
 
+
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+    
